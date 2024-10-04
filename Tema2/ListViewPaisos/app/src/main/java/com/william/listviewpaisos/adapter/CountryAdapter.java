@@ -1,4 +1,4 @@
-package com.william.listviewpaisos;
+package com.william.listviewpaisos.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,14 +11,21 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.william.listviewpaisos.Country;
+import com.william.listviewpaisos.R;
 
-public class CountryAdapter extends ArrayAdapter<Country> {
+public class    CountryAdapter extends ArrayAdapter<Country> {
 
     private Country[] datos;
     private Context context;
+
+    static class ViewHolder {
+        ImageView imagen;
+        TextView country;
+        TextView capital;
+        TextView poblation;
+    }
 
     public CountryAdapter(@NonNull Context context, Country[] datos){
         super(context, R.layout.listitem_country, datos);
