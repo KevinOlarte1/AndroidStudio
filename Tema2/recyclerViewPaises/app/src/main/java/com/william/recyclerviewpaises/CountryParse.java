@@ -39,7 +39,8 @@ public class CountryParse {
                     String name = element.getAttribute("countryName");
                     String capital = element.getAttribute("capital");
                     String population =element.getAttribute("population");
-                    int imgResource = context.getResources().getIdentifier("_" + pasies[i].getCountryCode().toLowerCase(),"drawable", context.getOpPackageName());
+
+                    int imgResource = context.getResources().getIdentifier("_" + code.toLowerCase(),"drawable", context.getOpPackageName());
 
                     pasies[i] = new Country(name, code, population, capital, imgResource);
                 }

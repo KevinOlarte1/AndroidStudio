@@ -1,6 +1,7 @@
 package com.william.recyclerviewpaises;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         datos = CountryParse.parseCountry(this);
-
+        Log.i("Info", datos.length + " Paises");
+        for (Country country : datos) {
+            Log.d("Pais", country.toString());
+        }
         rvListado = findViewById(R.id.recyclerView);
         rvListado.setHasFixedSize(true);
         rvListado.setAdapter(new CountryAdapter(datos,this));

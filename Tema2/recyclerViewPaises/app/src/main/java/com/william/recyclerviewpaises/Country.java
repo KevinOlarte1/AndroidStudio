@@ -40,6 +40,7 @@ public class Country {
                 ", countryCode='" + countryCode + '\'' +
                 ", population='" + population + '\'' +
                 ", capital='" + capital + '\'' +
+                ", path='" + imgResource + '\'' +
                 '}';
     }
 
