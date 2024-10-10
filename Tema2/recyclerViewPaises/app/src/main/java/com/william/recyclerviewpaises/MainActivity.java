@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             Log.d("Pais", country.toString());
         }
         rvListado = findViewById(R.id.recyclerView);
-        rvListado.setHasFixedSize(true);
+            rvListado.setHasFixedSize(true);
         rvListado.setAdapter(new CountryAdapter(datos,this));
         rvListado.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

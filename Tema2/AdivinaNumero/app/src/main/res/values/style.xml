@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="CustomButtonStyle" parent="Widget.AppCompat.Button">
+        <!-- Color de fondo -->
+        <item name="android:background">@drawable/button_background</item>
+        <!-- Color del texto -->
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>
