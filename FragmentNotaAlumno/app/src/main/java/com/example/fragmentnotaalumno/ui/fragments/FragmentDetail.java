@@ -9,40 +9,51 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentnotaalumno.R;
-import com.example.fragmentnotaalumno.models.Alumno;
+import com.example.fragmentnotaalumno.interfaces.IclickListenner;
+import com.example.fragmentnotaalumno.models.AlumnoAdapter;
+import com.example.fragmentnotaalumno.models.NotasAlumnoAdapter;
+import com.example.fragmentnotaalumno.models.objects.Alumno;
+import com.example.fragmentnotaalumno.models.objects.Asignatura;
+import com.example.fragmentnotaalumno.models.objects.Nota;
+
+import java.util.List;
+import java.util.Map;
 
 public class FragmentDetail extends Fragment {
 
-    public interface IOnAttachListenner{
-        Alumno getContact();
+    public interface IOnAttachListennerDetail{
+        Alumno getAlumno();
+        Map<String, Asignatura> getAsignaturas();
     }
-
-    private TextView tvNombre;
-    private IOnAttachListenner attachListenner;
+    private List<Nota> notas;
+    private Map<String, Asignatura> asignaturas;
 
     public FragmentDetail(){super(R.layout.fragment_detail);}
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvNombre =view.findViewById(R.id.tvNombre);
-
-        Alumno tmp = attachListenner.getContact();
-        tvNombre.setText(tmp.getNombre());
-    }
-
-    public void  setProp(Alumno alumno){
-        tvNombre.setText(alumno.getNombre());
+        RecyclerView rvDetail = view.findViewById(R.id.rvDetail);
+        NotasAlumnoAdapter adapter = new NotasAlumnoAdapter(notas, asignaturas);
+        rvDetail.setAdapter(adapter);
+        rvDetail.hasFixedSize();
+        rvDetail.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
     }
 
 
     @Override
     public void onAttach(@NonNull Context context) {
+        Log.i("Entra", "asd");
         super.onAttach(context);
-        attachListenner = (IOnAttachListenner) requireActivity();
+        IOnAttachListennerDetail onAttachListennerDetail = (IOnAttachListennerDetail) requireActivity();
+        notas = onAttachListennerDetail.getAlumno().getNotas();
+        asignaturas = onAttachListennerDetail.getAsignaturas();
     }
 }
 

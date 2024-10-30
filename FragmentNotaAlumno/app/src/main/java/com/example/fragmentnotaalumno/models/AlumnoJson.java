@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.fragmentnotaalumno.R;
+import com.example.fragmentnotaalumno.models.objects.Alumno;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +50,7 @@ public class AlumnoJson {
 
                 }
 
-                listResult.add(new Alumno(nia, nombre,apellido1, apellidooo2, fechaNacimiento, email,notas));
+                //listResult.add(new Alumno(nia, nombre,apellido1, apellidooo2, fechaNacimiento, email,notas));
 
 
             }

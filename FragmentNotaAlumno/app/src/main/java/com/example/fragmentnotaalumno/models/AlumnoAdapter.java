@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentnotaalumno.R;
 import com.example.fragmentnotaalumno.interfaces.IclickListenner;
+import com.example.fragmentnotaalumno.models.objects.Alumno;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class AlumnoAdapter extends  RecyclerView.Adapter<AlumnoAdapter.AlumnoVie
     private final List<Alumno> alumnos;
     private IclickListenner listenner;
 
-    public AlumnoAdapter(List<Alumno> contacts){ this.alumnos = contacts; }
+    public AlumnoAdapter(List<Alumno> alumnos){ this.alumnos = alumnos; }
 
     public void setListenner(IclickListenner listenner){this.listenner = listenner; }
 

@@ -3,6 +3,7 @@ package com.example.fragmentnotaalumno.models;
 import android.content.Context;
 
 import com.example.fragmentnotaalumno.R;
+import com.example.fragmentnotaalumno.models.objects.Asignatura;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,9 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AsignaturaJson {
 

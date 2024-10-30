@@ -3,32 +3,25 @@ package com.example.fragmentnotaalumno.ui;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.fragmentnotaalumno.R;
 import com.example.fragmentnotaalumno.interfaces.IclickListenner;
-import com.example.fragmentnotaalumno.models.Alumno;
+import com.example.fragmentnotaalumno.models.DataParser;
+import com.example.fragmentnotaalumno.models.objects.Alumno;
 import com.example.fragmentnotaalumno.models.AlumnoJson;
-import com.example.fragmentnotaalumno.models.Asignatura;
-import com.example.fragmentnotaalumno.models.AsignaturaJson;
+import com.example.fragmentnotaalumno.models.objects.Asignatura;
 import com.example.fragmentnotaalumno.ui.fragments.FragmentDetail;
 import com.example.fragmentnotaalumno.ui.fragments.FragmentList;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-public class MainActivity extends AppCompatActivity implements IclickListenner, FragmentList.IOnAttachListenner, FragmentDetail.IOnAttachListenner {
+public class MainActivity extends AppCompatActivity implements IclickListenner, FragmentList.IOnAttachListenner, FragmentDetail.IOnAttachListennerDetail {
 
 
     private List<Alumno> alumnos;
@@ -59,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements IclickListenner, 
         Log.i("detalle", String.valueOf(detalle));
         if (detalle) {
             fragmentDetail = (FragmentDetail) fragmentManager.findFragmentById(R.id.fcvDetail);
+            Log.i("A", "Demasiado carga");
             if (!(fragmentManager.findFragmentById(R.id.fcvList) instanceof FragmentList)){
                 fragmentManager.popBackStack();
             }
@@ -90,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements IclickListenner, 
         selectedContact = position;
         Log.i("Clicked", String.valueOf(position));
         if (detalle){
-            fragmentDetail.setProp(alumno);
+
         }
         else {
             fragmentManager.beginTransaction()
@@ -100,17 +94,22 @@ public class MainActivity extends AppCompatActivity implements IclickListenner, 
                     .commit();
         }
 
-        Log.i("Sale", "aaaaaaaaaaaaaa");
+
     }
 
 
     @Override
     public List<Alumno> getAlumnos() {
-        return AlumnoJson.getAlumnos(this);
+        return DataParser.parseAlumnos(this);
     }
 
     @Override
-    public Alumno getContact() {
+    public Alumno getAlumno() {
         return alumnos.get(selectedContact);
+    }
+
+    @Override
+    public Map<String, Asignatura> getAsignaturas() {
+        return DataParser.parseAsignaturas(this);
     }
 }

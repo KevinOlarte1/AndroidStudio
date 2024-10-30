@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentnotaalumno.R;
 import com.example.fragmentnotaalumno.interfaces.IclickListenner;
-import com.example.fragmentnotaalumno.models.Alumno;
+import com.example.fragmentnotaalumno.models.objects.Alumno;
 import com.example.fragmentnotaalumno.models.AlumnoAdapter;
 
 import java.util.List;
