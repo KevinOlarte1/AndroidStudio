@@ -1,4 +1,4 @@
-package com.william.fracgmentcontactjava.models;
+    package com.william.fracgmentcontactjava.models;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;

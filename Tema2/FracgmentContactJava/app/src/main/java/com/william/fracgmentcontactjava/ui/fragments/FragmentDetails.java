@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.william.fracgmentcontactjava.R;
 import com.william.fracgmentcontactjava.models.Contact;
 
-public class FragmentDetails extends Fragment {
+public class        FragmentDetails extends Fragment {
 
     public interface IOnAttachListenner{
         Contact getContact();
@@ -60,17 +60,17 @@ public class FragmentDetails extends Fragment {
 
     }
     //TODO: MIRRAR AQUI DA ERROR NO OLVIDAR NS DONDE PERO NO ENTRA. CREO!!!
-    public void  setProp(Contact contact){
-        Log.i("Dentro", "DENTRO!");
-        tvAddressContact.setText(contact.getAddress());
-        tvApellidoContact.setText(contact.getSecondSurname());
-        tvBirthContact.setText(contact.getBirth());
-        tvEmailContact.setText(contact.getEmail());
-        tvCompanyContact.setText(contact.getCompany());
-        tvNameContact.setText(contact.getName());
-        tvPhone1Contact.setText(contact.getPhone1());
-        tvPhone2Contact.setText(contact.getPhone2());
-    }
+        public void  setProp(Contact contact){
+            Log.i("Dentro", "DENTRO!");
+            tvAddressContact.setText(contact.getAddress());
+            tvApellidoContact.setText(contact.getSecondSurname());
+            tvBirthContact.setText(contact.getBirth());
+            tvEmailContact.setText(contact.getEmail());
+            tvCompanyContact.setText(contact.getCompany());
+            tvNameContact.setText(contact.getName());
+            tvPhone1Contact.setText(contact.getPhone1());
+            tvPhone2Contact.setText(contact.getPhone2());
+        }
 
     @Override
     public void onAttach(@NonNull Context context) {

@@ -30,13 +30,13 @@ public class FragmentList extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        RecyclerView rvList = view.findViewById(R.id.rvList);
-        ContactAdapter adapter = new ContactAdapter(contacts);
-        adapter.setListenner(clickListenner);
-        rvList.setAdapter(adapter);
-        rvList.hasFixedSize();
-        rvList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            super.onViewCreated(view, savedInstanceState);
+            RecyclerView rvList = view.findViewById(R.id.rvList);
+            ContactAdapter adapter = new ContactAdapter(contacts);
+            adapter.setListenner(clickListenner);
+            rvList.setAdapter(adapter);
+            rvList.hasFixedSize();
+            rvList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
